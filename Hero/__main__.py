@@ -115,8 +115,8 @@ async def initiate_bot():
             console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
             return
         try:
-            await ASS_CLI_1.join_chat("Modmenumaking")
-            await ASS_CLI_1.join_chat("Yaaro_ki_yaarii")
+            await ASS_CLI_1.join_chat("AlishaSupport")
+            await ASS_CLI_1.join_chat("Shayri_Music_Lovers")
         except:
             pass
         console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 1 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME1}")
@@ -191,8 +191,8 @@ async def initiate_bot():
             console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
             return
         try:
-            await ASS_CLI_5.join_chat("modmenumaking")
-            await ASS_CLI_5.join_chat("Yaaro_ki_yaarii")
+            await ASS_CLI_5.join_chat("AlishaSupport")
+            await ASS_CLI_5.join_chat("Shayri_Music_Lovers")
         except:
             pass
         console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 5 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME5}")
@@ -210,8 +210,8 @@ async def initiate_bot():
             console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
             return
         try:
-            await LOG_CLIENT.join_chat("modmenumaking")
-            await LOG_CLIENT.join_chat("yaaro_ki_yaarii")
+            await LOG_CLIENT.join_chat("AlishaSupport")
+            await LOG_CLIENT.join_chat("Shayri_Music_Lovers")
         except:
             pass
     console.print(f"└[red] ʜᴇʀᴏ ᴍᴜsɪᴄ ʙᴏᴛ ʙᴏᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ...")
@@ -479,4 +479,4 @@ async def help_button(client, query):
 
 
 if __name__ == "__main__":
-    loop.run_until_complete(initiate_bot())
+    loop.run_until_complete(initiate_bot()
