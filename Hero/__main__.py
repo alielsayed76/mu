@@ -479,4 +479,4 @@ async def help_button(client, query):
 
 
 if __name__ == "__main__":
-    loop.run_until_complete(initiate_bot()
+    loop.run_until_complete(initiate_bot())
