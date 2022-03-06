@@ -214,7 +214,7 @@ async def initiate_bot():
             await LOG_CLIENT.join_chat("Shayri_Music_Lovers")
         except:
             pass
-    console.print(f"└[red] ʜᴇʀᴏ ᴍᴜsɪᴄ ʙᴏᴛ ʙᴏᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ...")
+    console.print(f"└[red] ᴍᴜsɪᴄ ʙᴏᴛ ʙᴏᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ...")
     if STRING1 != "None":
         await pytgcalls1.start()
     if STRING2 != "None":
@@ -479,4 +479,4 @@ async def help_button(client, query):
 
 
 if __name__ == "__main__":
-    loop.run_until_complete(initiate_bot()
+    loop.run_until_complete(initiate_bot())
