@@ -82,7 +82,7 @@ async def initiate_bot():
             status="[bold blue]Importation Completed!",
         )
     console.print(
-        "[bold green]ᴄᴏɴɢʀᴀᴛs ʜᴇʀᴏ ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨\n"
+        "[bold green]ᴄᴏɴɢʀᴀᴛs ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨\n"
     )
     try:
         await app.send_message(
@@ -479,4 +479,4 @@ async def help_button(client, query):
 
 
 if __name__ == "__main__":
-    loop.run_until_complete(initiate_bot())
+    loop.run_until_complete(initiate_bot()
