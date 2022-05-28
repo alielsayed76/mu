@@ -108,15 +108,15 @@ async def useradd(_, message: Message):
 @app.on_message(filters.command("start") & filters.private & ~filters.edited)
 async def useradd(_, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/46247f00eecfb587117c0.jpg",
+        photo=ftelegra.ph//file/3ed8231a8af0e17fa87ad.jpg",
         caption=f"""**━━━━━━━━━━━━━━━━━━━━━━━━
 💥 ʜᴇʟʟᴏ, ɪ ᴀᴍ ᴀʟɪsʜᴀ sᴜᴘᴇʀ ғᴀsᴛ ᴠᴄ ᴘʟᴀʏᴇʀ
 ʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs🌼 ..
 ┏━━━━━━━━━━━━━━━━━┓
 ┣★ ᴋɪɴɢ    : [Aʙʜɪᴍᴀɴʏᴜ Rᴀɴᴀ](https://t.me/Venom_Hai_Hum)
-┣★ ᴜᴘᴅᴀᴛᴇs : [Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ](https://t.me/Pubglovers_Shayri_lovers)
-┣★ sᴜᴘᴘᴏʀᴛ : [ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ](https://t.me/Shayri_Music_Lovers)
-┣★ Qᴜᴇᴇɴ   : [Cᴀɴᴅʏ ǫᴜᴇᴇɴ](https://t.me/@its_alone_candy)
+┣★ ᴜᴘᴅᴀᴛᴇs : [Sᴜᴘᴘᴏʀᴛ Cʜᴀɴɴᴇʟ](https://t.me/Pubglovers_Shayri_lovers)
+┣★ sᴜᴘᴘᴏʀᴛ : [ꜱᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ](https://t.me/Shayri_Music_Lovers)
+┣★ Qᴜᴇᴇɴ   : [Cᴀɴᴅʏ ǫᴜᴇᴇɴ](https://t.me/its_alone_candy)
 ┗━━━━━━━━━━━━━━━━━┛
 💞 ɪғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ǫᴜᴇsᴛɪᴏɴs ᴛʜᴇɴ
 ᴅᴍ ᴛᴏ ᴍʏ [ʟᴇɢᴇɴᴅ ᴏᴡɴᴇʀ](https://t.me/Venom_Hai_Hum) ...
