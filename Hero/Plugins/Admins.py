@@ -64,7 +64,7 @@ __HELP__ = """
 
 
 @app.on_message(
-    filters.command(["pause", "skip", "resume", "stop", "end"])
+    filters.command(["وقف", "تخطي", "استئناف", "توقف", "انهاء"])
     & filters.group
 )
 @AdminRightsCheck
@@ -72,25 +72,25 @@ __HELP__ = """
 async def admins(_, message: Message):
     global get_queue
     if not len(message.command) == 1:
-        return await message.reply_text("ᴇʀʀᴏʀ ᴡʀᴏɴɢ ᴜsᴀɢᴇ ᴏғ ᴄᴏᴍᴍᴀɴᴅ...")
+        return await message.reply_text("امر خاطئ")
     if not await is_active_chat(message.chat.id):
-        return await message.reply_text("ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ ᴏɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ...")
+        return await message.reply_text("مفيش حاجه شغاله ")
     chat_id = message.chat.id
     if message.command[0][1] == "a":
         if not await is_music_playing(message.chat.id):
-            return await message.reply_text("ᴍᴜsɪᴄ ɪs ᴀʟʀᴇᴀᴅʏ ᴘᴀᴜsᴇᴅ...")
+            return await message.reply_text("احن واقفين اصلا")
         await music_off(chat_id)
         await pause_stream(chat_id)
         await message.reply_text(
-            f"🎧 ᴠᴏɪᴄᴇᴄʜᴀᴛ ᴘᴀᴜsᴇᴅ ʙʏ {message.from_user.mention}..."
+            f"🎧 اللي وقف الاغاني {message.from_user.mention}..."
         )
     if message.command[0][1] == "e":
         if await is_music_playing(message.chat.id):
-            return await message.reply_text("🌸 ᴍᴜsɪᴄ ɪs ᴀʟʀᴇᴀᴅʏ ᴘʟᴀʏɪɴɢ...")
+            return await message.reply_text("🌸 شغالين اصلا")
         await music_on(chat_id)
         await resume_stream(chat_id)
         await message.reply_text(
-            f"🎧 ᴠᴏɪᴄᴇᴄʜᴀᴛ ʀᴇsᴜᴍᴇᴅ ʙʏ {message.from_user.mention}..."
+            f"🎧 اللي شغل تاني {message.from_user.mention}..."
         )
     if message.command[0][1] == "t" or message.command[0][1] == "n":
         if message.chat.id not in db_mem:
@@ -105,7 +105,7 @@ async def admins(_, message: Message):
         await remove_active_video_chat(chat_id)
         await stop_stream(chat_id)
         await message.reply_text(
-            f"🎧 ᴠᴏɪᴄᴇᴄʜᴀᴛ ᴇɴᴅᴇᴅ/sᴛᴏᴘᴘᴇᴅ ʙʏ {message.from_user.mention}..."
+            f"🎧 اللي انهاها {message.from_user.mention}..."
         )
     if message.command[0][1] == "k":
         if message.chat.id not in db_mem:
@@ -117,7 +117,7 @@ async def admins(_, message: Message):
             await remove_active_chat(chat_id)
             await remove_active_video_chat(chat_id)
             await message.reply_text(
-                "ɴᴏ ᴍᴏʀᴇ ᴍᴜsɪᴄ ɪɴ __ǫᴜᴇᴜᴇ__ \n\nʟᴇᴀᴠɪɴɢ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ..."
+                "مفيش اغاني تانيه موجوده __ǫᴜᴇᴜᴇ__ \n\nسلام"
             )
             await stop_stream(chat_id)
             return
@@ -162,7 +162,7 @@ async def admins(_, message: Message):
                 final_output = await message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"<b>__sᴋɪᴘᴘᴇᴅ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ__</b>\n\n🎥<b>__sᴛᴀʀᴛᴇᴅ ᴘʟᴀʏɪɴɢ:__</b> {title} \n⏳<b>__ᴅᴜʀᴀᴛɪᴏɴ:__</b> {duration_min} \n👤<b>__ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:__ </b> {mention}",
+                    caption=f"<b>__اتخطينا الاغنيه__</b>\n\n🎥<b>__بدات الاغنيه:__</b> {title} \n⏳<b>__المده:__</b> {duration_min} \n👤<b>__اللي طلبها:__ </b> {mention}",
                 )
                 await start_timer(
                     videoid,
@@ -175,7 +175,7 @@ async def admins(_, message: Message):
                 )
             elif str(finxx) == "s1s":
                 mystic = await message.reply_text(
-                    "Skipped.. Changing to next Video Stream."
+                    "بنشغل اللي بعدها"
                 )
                 afk = videoid
                 read = (str(videoid)).replace("s1s_", "", 1)
@@ -187,7 +187,7 @@ async def admins(_, message: Message):
                         await skip_video_stream(chat_id, videoid, 720, mystic)
                     except Exception as e:
                         return await mystic.edit(
-                            f"ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴄʜᴀɴɢɪɴɢ ᴠɪᴅᴇᴏ sᴛʀᴇᴀᴍ...\n\nᴘᴏssɪʙʟᴇ ʀᴇᴀsᴏɴ:- {e}"
+                            f"فشلل\n\nالسبب المحتمل:- {e}"
                         )
                     buttons = secondary_markup2("Smex1", message.from_user.id)
                     mention = db_mem[afk]["username"]
@@ -196,7 +196,7 @@ async def admins(_, message: Message):
                         photo="Utils/Telegram.JPEG",
                         reply_markup=InlineKeyboardMarkup(buttons),
                         caption=(
-                            f"<b>__sᴋɪᴘᴘᴇᴅ ᴠɪᴅᴇᴏ ᴄʜᴀᴛ__</b>\n\n👤**__ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:__** {mention}"
+                            f"<b>__اتخطينا الاغنيه__</b>\n\n👤**__اللي طلبها:__** {mention}"
                         ),
                     )
                     await mystic.delete()
@@ -210,7 +210,7 @@ async def admins(_, message: Message):
                     nrs, ytlink = await get_m3u8(videoid)
                     if nrs == 0:
                         return await mystic.edit(
-                            "ғᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ᴠɪᴅᴇᴏ ғᴏʀᴍᴀᴛs...",
+                            "معرفناش نتعرف عليها",
                         )
                     try:
                         await skip_video_stream(
@@ -218,7 +218,7 @@ async def admins(_, message: Message):
                         )
                     except Exception as e:
                         return await mystic.edit(
-                            f"ᴇʀʀᴏʀ ᴡʜɪʟᴇ ᴄʜᴀɴɢɪɴɢ ᴠɪᴅᴇᴏ sᴛʀᴇᴀᴍ...\n\nᴘᴏssɪʙʟᴇ ʀᴇᴀsᴏɴ:- {e}"
+                            f"فشلل\n\السبب:- {e}"
                         )
                     theme = await check_theme(chat_id)
                     c_title = message.chat.title
@@ -236,7 +236,7 @@ async def admins(_, message: Message):
                         photo=thumb,
                         reply_markup=InlineKeyboardMarkup(buttons),
                         caption=(
-                            f"<b>__sᴋɪᴘᴘᴇᴅ ᴠɪᴅᴇᴏ ᴄʜᴀᴛ__</b>\n\n🎥<b>__sᴛᴀʀᴛᴇᴅ ᴠɪᴅᴇᴏ ᴘʟᴀʏɪɴɢ:__ </b> [{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n👤**__ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:__** {mention}"
+                            f"<b>__اتخطينا الاغنيه__</b>\n\n🎥<b>__بتشتغل:__ </b> [{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n👤**__اللي طلبها:__** {mention}"
                         ),
                     )
                     await mystic.delete()
@@ -252,7 +252,7 @@ async def admins(_, message: Message):
                     )
             else:
                 mystic = await message.reply_text(
-                    f"**{MUSIC_BOT_NAME} ᴘʟᴀʏʟɪsᴛ ғᴜɴᴄᴛɪᴏɴ...**\n\n__ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ɴᴇxᴛ ᴍᴜsɪᴄ ғʀᴏᴍ ᴘʟᴀʏʟɪsᴛ...__"
+                    f"**{MUSIC_BOT_NAME} قائمة التشغيل**\n\n__بنحمل اللي بعدها__"
                 )
                 (
                     title,
@@ -261,7 +261,7 @@ async def admins(_, message: Message):
                     thumbnail,
                 ) = get_yt_info_id(videoid)
                 await mystic.edit(
-                    f"**{MUSIC_BOT_NAME} ᴅᴏᴡɴʟᴏᴀᴅᴇʀ**\n**ᴛɪᴛʟᴇ:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+                    f"**{MUSIC_BOT_NAME} ᴅᴏᴡɴʟᴏᴀᴅᴇʀ**\n**النسبه:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
                 )
                 downloaded_file = await loop.run_in_executor(
                     None, download, videoid, mystic, title
@@ -282,7 +282,7 @@ async def admins(_, message: Message):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"<b>__sᴋɪᴘᴘᴇᴅ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ__</b>\n\n🎥<b>__sᴛᴀʀᴛᴇᴅ ᴘʟᴀʏɪɴɢ:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__ᴅᴜʀᴀᴛɪᴏɴ:__</b> {duration_min} ᴍɪɴs\n👤**__ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:__** {mention}"
+                        f"<b>__اتخطينا التشغيل__</b>\n\n🎥<b>__اشتغلت:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__المده:__</b> {duration_min} ᴍɪɴs\n👤**__اللي طلبها:__** {mention}"
                     ),
                 )
                 os.remove(thumb)
