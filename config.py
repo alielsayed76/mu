@@ -10,7 +10,7 @@ get_queue = {}
 BOT_TOKEN = getenv("BOT_TOKEN")
 API_ID = int(getenv("API_ID", ""))
 API_HASH = getenv("API_HASH")
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "10"))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "180"))
 MONGO_DB_URI = getenv("MONGO_DB_URI")
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "").split()))
 OWNER_ID = list(map(int, getenv("OWNER_ID", "").split()))
@@ -20,7 +20,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
 UPSTREAM_REPO = getenv(
-    "UPSTREAM_REPO", "https://github.com/CandyMusic/Hero"
+    "UPSTREAM_REPO", "https://github.com/alielsayed76/mu"
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 
